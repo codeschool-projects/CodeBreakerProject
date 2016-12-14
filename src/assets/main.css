@@ -1,0 +1,12 @@
+.code {
+    font-size: 50px;
+    padding-left: 70px;
+}
+
+.failure {
+    color: red;
+}
+
+.success {
+    color: green;
+}

@@ -1,16 +1,31 @@
 {
   "name": "project-template",
   "version": "1.0.0",
-  "description": "Code School Project Template",
-  "main": "index.js",
+  "description": "Code Breaker Project",
+  "private": true,
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/"
+    "start": "browser-sync start --server ./src --files ./src",
+    "test": "mocha -t 20000 --compilers js:babel-register test/*.spec.js",
+    "test-watch": "npm test -- --bail --watch",
+    "deploy:github-pages": "git subtree push --prefix src origin gh-pages"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Eric J Fisher <eric@codeschool.com>",
+  "license": "MIT",
   "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "browser-sync": "^2.14.0",
     "chai": "^3.5.0",
-    "jsdom": "^9.2.1",
-    "mocha": "^2.5.3"
+    "javascript-sandbox": "git+https://github.com/codeschool/javascript-sandbox.git",
+    "jsdom": "^9.4.1",
+    "mocha": "^3.0.1",
+    "sinon": "^1.17.5"
+  },
+  "engines": {
+    "node": ">=4.6",
+    "npm": ">=2.15"
+  },
+  "babel": {
+    "presets": ["es2015"]
   }
 }
