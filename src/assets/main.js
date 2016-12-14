@@ -1,11 +1,12 @@
 function guess(){
-    var input = document.getElementById('user-guess').value;
     var answer = document.getElementById('answer').value;
     var attempt = document.getElementById('attempt').value;
-    var message = document.getElementById('message');
     var code = document.getElementById('code');
     var guessingdiv = document.getElementById('guessing-div');
+    var input = document.getElementById('user-guess').value;
+    var message = document.getElementById('message');
     var replaydiv = document.getElementById('replay-div');
+    var results = document.getElementById('results');
 
     message.innerHTML = "";
 
@@ -44,7 +45,7 @@ function guess(){
     }
     html += '</div></div>';
 
-    document.getElementById('results').innerHTML += html;
+    results.innerHTML += html;
 
     if(correct == input.length) {
         message.innerHTML = 'You Win! :)';
