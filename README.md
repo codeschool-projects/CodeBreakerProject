@@ -47,15 +47,21 @@ Complete the following tasks to finish this project.
 
 ## Set the hidden input "answer" element
 
-The element answer needs to be set to randomly generated number (between 0 and 9999). Hint: `Math.round()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)`, `Math.ceiling(input)`, or `Math.round(input)` to round.
+The element answer needs to be set to randomly generated number (between 0 and 9999). 
+
+Hint: `Math.round()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)`, `Math.ceiling(input)`, or `Math.round(input)` to round.
 
 ## Make sure the "answer" element is exactly 4 characters long
 
-The element answer needs to be exactly 4 characters long. Hint: In order to add a zero to the front of answer it must be a string not a number, you can convert numbers to strings with `.toString()`. We can create a `while` loop that runs while `answer.length` is less than 4 that puts a `0` before answer's current value.
+The element answer needs to be exactly 4 characters long. 
+
+Hint: In order to add a zero to the front of answer it must be a string not a number, you can convert numbers to strings with `.toString()`. We can create a `while` loop that runs while `answer.length` is less than 4 that puts a `0` before answer's current value.
 
 ## Only set the "answer" element when it's not already set
 
-If the element answer already has a 4 character number value we shouldn't reset it. Hint: we can use an `if` condition to only run our code when answer isn't set.
+If the element answer already has a 4 character number value we shouldn't reset it. 
+
+Hint: we can use an `if` condition to only run our code when answer isn't set.
 
 ## Set the hidden input "attempt" element
 
