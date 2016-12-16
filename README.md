@@ -77,7 +77,9 @@ Increment the attempt element to keep count for when the user has made all 10 of
 
 ## Respond with results of a guess
 
-Every guess we need to add the results to our `results` element. The added results should be `<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">` where input is the value the user guessed. Followed by a `<span class="glyphicon glyphicon-ok"></span>` if a character is correct, a `<span class="glyphicon glyphicon-transfer"></span>` if a character is in the answer, but isn't in the right place, and a `<span class="glyphicon glyphicon-remove"></span>` if the number isn't in the answer at all. HINT: You can create a variable to hold the initial div, then add each character's results to that variable in a `for` loop' then add the closing `div` tags after the loop. After which you can just set the `results` element's `innerHTML` to that variable.
+Every guess we need to add the results to our `results` element. Each result should begin with `<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">` where input is the value the user guessed. Then for each character should add `<span class="glyphicon glyphicon-ok"></span>` if the character is correct, a `<span class="glyphicon glyphicon-transfer"></span>` if the character is in the answer, but isn't in the right position, and `<span class="glyphicon glyphicon-remove"></span>` if the number isn't in the answer at all. 
+
+HINT: You can create a variable to hold the initial div, then add each character's results to that variable in a `for` loop' then add the closing `div` tags after the loop. After which you can just set the `results` element's `innerHTML` to that variable.
 
 ## Respond with Win, Lose, or Try again
 
