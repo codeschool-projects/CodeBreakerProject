@@ -4,7 +4,7 @@ Please note, at this time this project is not yet complete. While you are welcom
 
 # Use Javascript to Create a "Code Breaker" Game
 
-You'll build a Code Breaker game using Javascript. The game will randomly generate a hidden code and the player gets 10 attempts to guess that code based on provided feedback. (based of the Mastermind board game)
+You'll build a Code Breaker game using Javascript. The game will randomly generate a hidden code and the player gets 10 attempts to guess that code based on provided feedback. (based off the Mastermind board game)
 
 # Getting Started
 
@@ -26,15 +26,15 @@ You will further your Javascript skills, as well as become more comfortable writ
 
 # Live Demo
 
-[Check out this link] (#) to see a working version of this project. Feel free to alter and expand on this project to make your own twist on the Code Breaker game once you've completed the steps.
+[Check out this link] (https://codeschool-projects.github.io/CodeBreakerProject/) to see a working version of this project. Feel free to alter and expand on this project to make your own twist on the Code Breaker game once you've completed the steps.
 
 You'll build a Code Breaker game that you can play and show off to others as an example of your abilities in Javascript.
 
 # Setup Instructions
 
-Once you have cloned the forked repository, go into the directory containing the project and look for the `/src` directory. This is the directory where you will be making changes when you start the following step-by-step instructions. You can simply open those files in a text editor to get started.
+Once you have cloned the forked repository, go into the directory containing the project and look for the `/src` directory. This is the directory where you will be making changes when you start the following step-by-step instructions. You can simply open those files in any text editor to get started.
 
-In this project, all of your changes will happen in the file called `/src/assets/main.js`.
+In this project, all of your changes will happen in the `/src/assets/main.js` file.
 
 # Tasks
 
