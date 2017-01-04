@@ -1,10 +1,10 @@
 # Work in progress
 
-Please note, at this time this project is not yet complete. While you are welcome to watch this project grow, at this point it's not yet ready for use. Thank you for your interest in Codeschool Projects!
+Please note, at this time this project is not yet complete. While you are welcome to watch this project grow, at this point it's not yet ready for use. Thank you for your interest in Code School Projects!
 
-# Use Javascript to Create a "Code Breaker" Game
+# Use JavaScript to Create a "Code Breaker" Game
 
-You'll build a Code Breaker game using Javascript. The game will randomly generate a hidden code and the player gets 10 attempts to guess that code based on provided feedback. (based off the Mastermind board game)
+You'll build a Code Breaker game using JavaScript. The game will randomly generate a hidden code and the player gets 10 attempts to guess that code based on provided feedback. (based off the Mastermind board game)
 
 <!-- Place Screen Shot of game here -->
 
@@ -14,12 +14,14 @@ To get started with this project, head over to the [Link to Repository](https://
 
 To get setup locally, run the following commands:
 
-```npm install
-npm start```
+```
+npm install
+npm start
+```
 
 # What You'll Use
 
-- Javascript
+- JavaScript
 - DOM elements
 - Loops
 - Conditions
@@ -27,13 +29,13 @@ npm start```
 
 # What You'll Learn
 
-You will further your Javascript skills, as well as become more comfortable writing Javascript code to create an entertaining game.
+You will further your JavaScript skills, as well as become more comfortable writing JavaScript code to create an entertaining game.
 
 # Live Demo
 
 [Check out this link] (https://codeschool-projects.github.io/CodeBreakerProject/) to see a working version of this project. Feel free to alter and expand on this project to make your own twist on the Code Breaker game once you've completed the steps.
 
-You'll build a Code Breaker game that you can play and show off to others as an example of your abilities in Javascript.
+You'll build a Code Breaker game that you can play and show off to others as an example of your abilities in JavaScript.
 
 # Setup Instructions
 
@@ -69,7 +71,7 @@ When the element attempt isn't set, then set it to `0`.
 
 ## Validate user input is a 4 character number
 
-Check the value provided from the `user-guess` element to see if it has a length of 4, if not return an error message `Guesses must be exactly 4 characters long.` to the element `message` and stop the function. Hint: The element message is a label, so you'll want to set it's `.innerHTML` not it's `.value`. You can stop the function using `return`.
+Check the value provided from the `user-guess` element to see if it has a length of 4, if not return an error message `Guesses must be exactly 4 characters long.` to the element `message` and stop the function.  Hint: The element message is a label, so you'll want to set it's `.innerHTML` not it's `.value`. You can stop the function using `return`.
 
 ## Increment attempt element
 
