@@ -1,10 +1,7 @@
 function guess(){
     let answer = document.getElementById('answer').value;
     let attempt = document.getElementById('attempt').value;
-    let code = document.getElementById('code');
-    let guessingDiv = document.getElementById('guessing-div');
     let input = document.getElementById('user-guess').value;
-    let replayDiv = document.getElementById('replay-div');
     let results = document.getElementById('results');
 
     setMessage('');
