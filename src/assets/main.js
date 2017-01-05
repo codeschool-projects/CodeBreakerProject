@@ -49,13 +49,11 @@ function guess(){
     if(correct == input.length) {
         setMessage('You Win! :)');
         showAnswer(true);
-        guessingDiv.style = "display:none";
-        replayDiv.style = "display:block";
+        showReplay();
     } else if(attempt >= 10) {
         setMessage('You Lose! :(');
         showAnswer(false);
-        guessingDiv.style = "display:none";
-        replayDiv.style = "display:block";
+        showReplay();
     } else {
         setMessage('Incorrect, try again.');
     }
@@ -65,11 +63,16 @@ function setMessage(message){
     document.getElementById('message').innerHTML = message;
 }
 
-function showAnswer(success){
+function showAnswer(success, answer){
     if(success) {
         document.getElementById('code').className += " success";
     } else {
         document.getElementById('code').className += " failure";
     }
-    document.getElementById('code').innerHTML = document.getElementById('answer').value;
+    document.getElementById('code').innerHTML = answer;
+}
+
+function showReplay(){
+    document.getElementById('guessing-div').style = "display:none";
+    document.getElementById('replay-div').style = "display:block";
 }
