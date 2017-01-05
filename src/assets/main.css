@@ -1,12 +1,20 @@
 .code {
-    font-size: 50px;
-    padding-left: 70px;
+  font-size: 50px;
+  padding-left: 70px;
 }
 
 .failure {
-    color: red;
+  color: #d9534f;
 }
 
 .success {
-    color: green;
+  color: #5cb85c;
+}
+
+.form-inline {
+  margin-bottom: 10px;
+}
+
+.message {
+  font-weight: bold;
 }
