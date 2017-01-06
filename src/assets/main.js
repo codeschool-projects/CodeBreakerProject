@@ -1,20 +1,14 @@
+let answer = document.getElementById('answer').value;
+let attempt = document.getElementById('attempt').value;
+
 function guess(){
-    let answer = document.getElementById('answer').value;
-    let attempt = document.getElementById('attempt').value;
     let input = document.getElementById('user-guess').value;
     let results = document.getElementById('results');
 
     setMessage('');
 
-    if(answer == "") {
-        answer = Math.floor(Math.random() * 10000).toString();
-        while(answer.length < 4) {
-            answer = "0" + answer;
-        }
-        document.getElementById('answer').value = answer;
-    }
-    if(attempt == "") {
-        attempt = 0;
+    if(answer == "" || attempt == "") {
+        setHiddenFields();
     }
 
     if(input.length != 4) {
@@ -56,17 +50,27 @@ function guess(){
     }
 }
 
+function setHiddenFields() {
+    answer = Math.floor(Math.random() * 10000).toString();
+    while(answer.length < 4) {
+        answer = "0" + answer;
+    }
+    document.getElementById('answer').value = answer;
+    attempt = 0;
+}
+
 function setMessage(message){
     document.getElementById('message').innerHTML = message;
 }
 
-function showAnswer(success, answer){
+function showAnswer(success){
+    let code = document.getElementById('code');
     if(success) {
-        document.getElementById('code').className += " success";
+        code.className += " success";
     } else {
-        document.getElementById('code').className += " failure";
+        code.className += " failure";
     }
-    document.getElementById('code').innerHTML = answer;
+    code.innerHTML = answer;
 }
 
 function showReplay(){
