@@ -3,7 +3,6 @@ let attempt = document.getElementById('attempt').value;
 
 function guess(){
     let input = document.getElementById('user-guess').value;
-    let results = document.getElementById('results');
 
     setMessage('');
 
@@ -44,7 +43,8 @@ function getResults(input){
         }
     }
     html += '</div></div>';
-    results.innerHTML += html;
+
+    document.getElementById('results').innerHTML += html;
 
     if(correct == input.length) {
         return true;
