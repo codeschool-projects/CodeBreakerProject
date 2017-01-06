@@ -11,12 +11,8 @@ function guess(){
         setHiddenFields();
     }
 
-    if(input.length != 4) {
-        setMessage('Guesses must be exactly 4 characters long.');
+    if(!validateInput(input)){
         return;
-    } else {
-        attempt++;
-        document.getElementById('attempt').value = attempt;
     }
 
     let correct = 0;
@@ -55,7 +51,6 @@ function setHiddenFields() {
     while(answer.length < 4) {
         answer = "0" + answer;
     }
-    document.getElementById('answer').value = answer;
     attempt = 0;
 }
 
@@ -76,4 +71,14 @@ function showAnswer(success){
 function showReplay(){
     document.getElementById('guessing-div').style = "display:none";
     document.getElementById('replay-div').style = "display:block";
+}
+
+function validateInput(input) {
+    if(input.length != 4) {
+        setMessage('Guesses must be exactly 4 characters long.');
+        return false;
+    } else {
+        attempt++;
+        return true;
+    }
 }
