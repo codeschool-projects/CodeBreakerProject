@@ -15,6 +15,20 @@ function guess(){
         return;
     }
 
+    if(getResults(input)) {
+        setMessage('You Win! :)');
+        showAnswer(true);
+        showReplay();
+    } else if(attempt >= 10) {
+        setMessage('You Lose! :(');
+        showAnswer(false);
+        showReplay();
+    } else {
+        setMessage('Incorrect, try again.');
+    }
+}
+
+function getResults(input){
     let correct = 0;
     let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
     for(i = 0; i < input.length; i++)
@@ -30,19 +44,12 @@ function guess(){
         }
     }
     html += '</div></div>';
-
     results.innerHTML += html;
 
     if(correct == input.length) {
-        setMessage('You Win! :)');
-        showAnswer(true);
-        showReplay();
-    } else if(attempt >= 10) {
-        setMessage('You Lose! :(');
-        showAnswer(false);
-        showReplay();
+        return true;
     } else {
-        setMessage('Incorrect, try again.');
+        return false;
     }
 }
 
