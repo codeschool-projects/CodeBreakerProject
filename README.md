@@ -47,53 +47,83 @@ In this project, all of your changes will happen in the `/src/assets/main.js` fi
 
 Complete the following tasks to finish this project.
 
-## Set the hidden input "answer" element
+## Create `setHiddenFields` function
 
-The element answer needs to be set to randomly generated whole number (between 0 and 9999). 
+Our application uses the `answer` hidden input to store the answer to the game. Our `setHiddenFields` method should not use any parameters, but needs to set the `awnser` hidden input to a randomly generated number between 0 and 9999.
 
 Hint: `Math.round()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)`, `Math.ceiling(input)`, or `Math.round(input)` to round.
 
-## Make sure the "answer" element is exactly 4 characters long
+Hint 2: The `document.getElementById(id)` function is a great way to get and set elements from the DOM. You can also set the element to a variable for later use.
 
-The element answer needs to be exactly 4 characters long. 
+## Make sure the hidden input "answer"'s value is exactly 4 characters long
+
+In our `setHiddenFields` function we need to make sure the hidden input `answer` is exactly 4 characters long. 
 
 Hint: In order to add a zero to the front of answer it must be a string not a number, you can convert numbers to strings with `.toString()`. We can create a `while` loop that runs while `answer.length` is less than 4 that puts a `0` before answer's current value.
 
-## Only set the "answer" element when it's not already set
+## Set the hidden input "attempt"'s value to zero
 
-If the element answer already has a 4 character number value we shouldn't reset it. 
+In our `setHiddenFields` function we should also set the hidden input `attempt` to `0`.
 
-Hint: we can use an `if` condition to only run our code when answer isn't set.
+## Only set the "answer" and "attempt" hidden inputs when they aren't already set
 
-## Set the hidden input "attempt" element
+When we go to call the `setHiddenFields` functions in our `guess` function, we should only update our hidden inputs when they're not set.
 
-When the element attempt isn't set, then set it to `0`.
+Hint: we can use an `if` condition to only run our code when `answer` or `attempt` is empty (`''`).
 
-## Validate user input is a 4 character number
+## Create `setMessage` function
 
-Check the value provided from the `user-guess` element to see if it has a length of 4, if not return an error message `Guesses must be exactly 4 characters long.` to the element `message` and stop the function.  Hint: The element message is a label, so you'll want to set it's `.innerHTML` not it's `.value`. You can stop the function using `return`.
+Create a `setMessage` function with one parameter. This function should set the `message` label to whatever is provided to the parameter.
 
-## Increment attempt element
+Hint: With a label you'll want to set it's `.innerHTML` not it's `.value`.
 
-Increment the attempt element to keep count for when the user has made all 10 of their permitted attempts.
+## Create `validateInput` function
 
-## Respond with results of a guess
+Create a function `validateInput` with one parameter. If the parameter has a `length` of 4 return `true`, otherwise use the `setMessage` function to set the `message` label to `Guesses must be exactly 4 characters long.` then return `false`
 
-Every guess we need to add the results to our `results` element. Each result should begin with `<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">` where input is the value the user guessed. Then for each character should add `<span class="glyphicon glyphicon-ok"></span>` if the character is correct, a `<span class="glyphicon glyphicon-transfer"></span>` if the character is in the answer, but isn't in the right position, and `<span class="glyphicon glyphicon-remove"></span>` if the number isn't in the answer at all. 
+## Call the `validateInput` function from the `guess` function
 
-HINT: You can create a variable to hold the initial div, then add each character's results to that variable in a `for` loop' then add the closing `div` tags after the loop. After which you can just set the `results` element's `innerHTML` to that variable.
+In our `guess` function set a variable for the value of the `user-guess` input. Create an `if` condition block that uses `validateInput` as it's conditional. If `validateInput` returns `false` `return` should be used to stop execution of the `guess` function, otherwise we should increment the `attempt` hidden input by 1.
 
-## Respond with Win, Lose, or Try again
+Hint: Don't forget you can use not `!` to check if something is `false` rather than `true`.
 
-Our `message` element's `innerHTML` should say `You win! :)` if the user gets the answer correct, `You Lose! :(` if the user doesn't guess correctly after 10 guesses, or `Incorrect, try again.` if they didn't guess correctly but have more guesses left.
+## Create `getResults` function
 
-## Show the answer on Win or Lose
+Create a `getResults` function that has one parameter. In this function we need to add the results of the user's guess to our `results` div's `innerHTML`. Each result should begin with `<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">` where `input` is the value the user guessed. Then for each character should add `<span class="glyphicon glyphicon-ok"></span>` if the character is in the correct position in the `answer`, a `<span class="glyphicon glyphicon-transfer"></span>` if the character is in the `answer` but isn't in the right position, and `<span class="glyphicon glyphicon-remove"></span>` if the number isn't in the `answer` at all. 
 
-When the user wins or lose we need to show the answer in our `code` element's `innerHTML`. If the user wins we should also add the `success` class to `code`, if the user loses we should add the `failure` class to `code`. Hint: You can add classes to an element using `.className`, but you'll need to put a space before whatever class you're adding.
+HINT: You can create a variable to hold the initial div, then add each character's results to that variable in a `for` loop, then add the closing `div` tags after the loop. After which you can just set the `results` element's `innerHTML` to that variable.
+
+## Check for correct guess
+
+In our `getResults` function create a variable that counts how many characters were guessed correctly, if all characters were guessed correctly the function should return `true` otherwise `false`
+
+## Setup Win Condition
+
+Add a call to the `getResults` function at the end of our `guess` function. If `getResults` returns true use the `setMessage` function to set the `message` label to `You win! :)`.
+
+## Setup Lose Condition
+
+If `getResults` returns `false` and the hidden input `attempt` value is greater than or equal to 10 use the `setMessage` function to set the `message` label to `You Lose! :(`.
+
+## Continue Play Condition
+
+If neigther a win or lose condition is met use the `setMessage` function to set the `message` label to `Incorrect, try again.`.
+
+## Create a `showAnswer` function
+
+Create a function `showAnswer` that has one parameter. This function should set the `innerHTML` of the `code` label to the `value` of the `answer` hidden input. In addition to this it should take the parameter as a `true` or `false` (indicating if the player won or lost) if the parameter is `true` add ` success` to `code`'s `className` otherwise it should add ` failure`. (note the space before ` success` and ` failure`)
+
+## Create a `showReplay` function
+
+Create a function `showReplay` with no parameters. This function will change the `style` of `guessing-div` div to `display:none` and the `style` of the `replay-div` div to `display:block` making it so the user can start over after they win or lose the game.
 
 ## Hide Guessing div, Show Replay div
 
 When a user wins or loses we need to hide the div `guessing-div` and show the div `replay-div` so the player start over after winning or losing. This can be done by setting their `.style` to `display:none` to hide the div and `display:block` to show a div.
+
+## Add `showAnswer` and `showReplay` to Win / Lose Conditions
+
+When a player wins in addition to `setMessage` call, they should also call `showAnswer` passing `true` for it's parameter, and finally make a call to `showReplay`. When the player loses they should call `showAnswer` with `false` for the parameter and then `showReplay`.
 
 # Next Steps
 
