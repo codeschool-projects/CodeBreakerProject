@@ -53,7 +53,6 @@ describe('The webpage', () => {
       {
         window.setHiddenFields();
         array.push(document.getElementById('answer').value);
-        console.log(array[i] + ' ' + array[i].length + ' ' + array[i].indexOf('.'));
         assert(array[i] >= 0 && array[i] <= 9999, '`answer` was not between 0 and 9999.');
         assert(array[i].indexOf('.') == -1, '`answer` was not a whole number.')
       }
