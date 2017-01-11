@@ -146,6 +146,24 @@ describe('CodeBreaker :', () => {
       assert(window.getResults('1234'), 'did not return `true` when parameter matched element `answer`\'s `value`.');
       assert(!window.getResults('0000'), 'did not return `false` whene parameter did not match element `answer`\'s `value`.');
     });
+
+    it('should call `setMessage` with value "You win! :)" when `getResults` returns `true`.', function(){
+      assert(typeof window.getResults === "function",'a fuction named `getResults` was not found.');
+      document.getElementById('answer').value = 1234;
+      document.getElementById('attempt').value = 1;
+      document.getElementById('user-guess').value = 1234;
+      window.guess();
+      assert(document.getElementById('message').value == 'You win! :)', 'didn\'t set the message to "You win! :)" when user input matched element `answer`\'s `value`');
+    });
+
+    it('should call `setMessage` with the value "You Lose! :(" when element `attempt`\'s `value` is 10 or more and `getResurts` returns false.', function(){
+      assert(typeof window.getResults === "function",'a fuction named `getResults` was not found.');
+      document.getElementById('answer').value = 1234;
+      document.getElementById('attempt').value = 10;
+      document.getElementById('user-guess').value = 4321;
+      window.guess();
+      assert(document.getElementById('message').value == 'You Lose! :(', 'didn\'t set the message to "You Lose! :(" when user input did not match element `answer`\'s `value` and `attempt`\'s `value` was 10 or more.');
+    });
   });
 
   describe('showAnswer()', function(){
