@@ -23,7 +23,6 @@ describe('CodeBreaker :', () => {
 
   let document;
   let window;
-  let spy;
   var array = [];
 
   // Setup
@@ -115,6 +114,15 @@ describe('CodeBreaker :', () => {
       assert(typeof window.validateInput === "function",'a fuction named `validateInput` was not found.');
       assert(window.validateInput(1234) == true,'did not return `true` when valid input was provided.');
       assert(window.validateInput(123) == false, 'returned `true` when length was not 4.');
+    });
+  });
+
+  describe('validateInput()', function(){
+    it('should run when `guess` runs', function(){
+      assert(typeof window.validateInput === "function",'a fuction named `validateInput` was not found.');
+      var spy = sinon.spy(window, "validateInput");
+      window.guess();
+      assert(spy.calledOnce(),'was not run when `guess` ran.');
     });
   });
 });
