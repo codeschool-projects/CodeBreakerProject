@@ -99,7 +99,7 @@ In our `getResults` function create a variable that counts how many characters w
 
 ## Setup Win Condition
 
-Add a call to the `getResults` function at the end of our `guess` function. If `getResults` returns true use the `setMessage` function to set the `message` label to `You win! :)`.
+Add a call to the `getResults` function at the end of our `guess` function. If `getResults` returns true use the `setMessage` function to set the `message` label to `You Win! :)`.
 
 ## Setup Lose Condition
 
@@ -115,7 +115,7 @@ Create a function `showAnswer` that has one parameter. This function should set 
 
 ## Create a `showReplay` function
 
-Create a function `showReplay` with no parameters. This function will change the `style` of `guessing-div` div to `display:none` and the `style` of the `replay-div` div to `display:block` making it so the user can start over after they win or lose the game.
+Create a function `showReplay` with no parameters. This function will change the `style.display` of `guessing-div` div to `none` and the `style.display` of the `replay-div` div to `block` making it so the user can start over after they win or lose the game.
 
 ## Hide Guessing div, Show Replay div
 
