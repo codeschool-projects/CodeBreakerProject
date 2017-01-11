@@ -125,4 +125,22 @@ describe('CodeBreaker :', () => {
       assert(spy.calledOnce(),'was not run when `guess` ran.');
     });
   });
+
+  describe('showAnswer()', function(){
+    it('should accept one parameter and set the `innerHTML` of element `code` to match element `answer`\'s value. If parameter is `true` element `code` should have ` success` added to it\'s `className` otherwise ` failure` should be added to it\`s `className`. (Note: the spaces before ` success` and ` failure` are required).', function(){
+      assert(typeof window.showAnswer === "function",'a fuction named `showAnswer` was not found.');
+      var code = document.getElementById('code');
+      //test true
+      window.setHiddenFields();
+      window.showAnswer(true);
+      assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `awnser`\'s value when parameter was `true`.');
+      assert(code.className.indexOf(' success') == 0,'`code`\'s `className` did not have ` success` in it when parameter was `true`.');
+      //test false
+      code.value = '';
+      code.className = '';
+      window.showAnswer(false);
+      assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `awnser`\'s value when parameter was `false`.');
+      assert(code.className.indexOf(' failure') == 0,'`code`\'s `className` did not have ` failure` in it when parameter was `false`.');
+    });
+  });
 });
