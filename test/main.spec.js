@@ -164,6 +164,15 @@ describe('CodeBreaker :', () => {
       window.guess();
       assert(document.getElementById('message').value == 'You Lose! :(', 'didn\'t set the message to "You Lose! :(" when user input did not match element `answer`\'s `value` and `attempt`\'s `value` was 10 or more.');
     });
+
+    it('should call `setMessage` with the value "Incorrect, try again." when element `awnser`\'s `value` does not match user input, but `attempt`\'s `value` is less than 10.', function(){
+      assert(typeof window.getResults === "function",'a fuction named `getResults` was not found.');
+      document.getElementById('answer').value = 1234;
+      document.getElementById('attempt').value = 1;
+      document.getElementById('user-guess').value = 4321;
+      window.guess();
+      assert(document.getElementById('message').value == 'Incorrect, try again.', 'didn\'t set the message to "Incorrect, try again." when user input did not match element `answer`\'s `value` and `attempt`\'s `value` was less than 10.');
+    });
   });
 
   describe('showAnswer()', function(){
@@ -181,6 +190,36 @@ describe('CodeBreaker :', () => {
       window.showAnswer(false);
       assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `awnser`\'s value when parameter was `false`.');
       assert(code.className.indexOf(' failure') == 0,'`code`\'s `className` did not have ` failure` in it when parameter was `false`.');
+    });
+  });
+
+  describe('showReplay()', function(){
+    it('should set element `guessing-div`\'s `style` to "display:none" element `replay-div`\'s `style` to "display:block".', function(){
+      assert(typeof window.showReplay === "function",'a fuction named `showReplay` was not found.');
+      window.showReplay();
+      assert(document.getElementById('guessing-div').style == "display:none", '`guessing-div`\'s `style` was not set to "display:none".');
+      assert(document.getElementById('replay-div').style == "display:block", '`replay-div`\'s `style` was not set to "display:block".');
+    });
+  });
+
+  describe('guess()', function(){
+    it('should call `showAnswer` and `showReplay` when either the player guesses correctly, or runs out of attempts. If player wins provide `true` to the `showAnswer` call, otherwise `false`.', function(){
+      assert(typeof window.showAnswer === "function",'a fuction named `showAnswer` was not found.');
+      assert(typeof window.showReplay === "function",'a fuction named `showReplay` was not found.');
+      //win outcome
+      document.getElementById('answer').value = 1234;
+      document.getElementById('attempt').value = 1;
+      document.getElementById('user-guess').value = 1234;
+      window.guess();
+      assert(document.getElementById('guessing-div').style == "display:none", '`showReplay` was not run when game win condition was met.');
+      assert(document.getElementById('message').value == 'You win! :)','`showAnswer` was not run when game win condition was met');
+      //lose outcame
+      document.getElementById('answer').value = 1234;
+      document.getElementById('attempt').value = 10;
+      document.getElementById('user-guess').value = 4321;
+      window.guess();
+      assert(document.getElementById('guessing-div').style == "display:none", '`showReplay` was not run when game lose condition was met.');
+      assert(document.getElementById('message').value == 'You Lose! :(','`showAnswer` was not run when game lose condition was met');
     });
   });
 });
