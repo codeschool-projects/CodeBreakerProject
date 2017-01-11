@@ -87,9 +87,7 @@ describe('CodeBreaker :', () => {
         window.setHiddenFields();
         assert(document.getElementById('attempt').value == 0, '`attempt` should have a value of 0.');
     });
-  });
 
-  describe('setHiddenFields()', function(){
     it('should only run if `attempt` or `answer` are empty', function() {
       assert(typeof window.setHiddenFields === "function",'a fuction named `setHiddenFields` was not found.');
       //make sure fields are populated before testing
@@ -115,9 +113,7 @@ describe('CodeBreaker :', () => {
       assert(window.validateInput(1234) == true,'did not return `true` when valid input was provided.');
       assert(window.validateInput(123) == false, 'returned `true` when length was not 4.');
     });
-  });
 
-  describe('validateInput()', function(){
     it('should run when `guess` runs', function(){
       assert(typeof window.validateInput === "function",'a fuction named `validateInput` was not found.');
       var spy = sinon.spy(window, "validateInput");
@@ -130,16 +126,25 @@ describe('CodeBreaker :', () => {
     it('should accept one parameter and add to the `results` element\'s `innerHTML` based on how close the parameter is to the value of element `answer`. Each result should begin with `<div class="row"><span class="col-md-6">\' + input + \'</span><div class="col-md-6">` where `input` is the function\'s parameter. Foreach character in `input`: add `<span class="glyphicon glyphicon-ok"></span>` if the character is in the element `answer`\s `value` and in the correct position, add `<span class="glyphicon glyphicon-transfer"></span>` if the character is in element `answer`\`s `value`, but is not in the correct position, and add `<span class="glyphicon glyphicon-remove"></span>` if the character is not in `answer`\'s `value` at all.',function(){
       assert(typeof window.getResults === "function",'a fuction named `getResults` was not found.');
       //Setup
-      document.getResults.innerHTML = '';
+      document.getElementById('results').innerHTML = '';
       document.getElementById('answer').value = 1234;
       //first character correct, second wrong place, third and fouth wrong
       window.getResults(1300);
-      assert(document.getResults.innerHTML.indexOf('glyphicon glyphicon-ok') != -1, 'correct characters are not being marked as correct.');
-      assert(!document.getResults.innerHTML.indexOf('glyphicon glyphicon-ok') > 0, 'some characters are being incorrectly marked as correct.');
-      assert(document.getResults.innerHTML.indexOf('glyphicon glyphicon-transfer') != 1, 'characters that were present in the answer, but not in the right position are not getting marked correctly.');
-      assert(!document.getResults.innerHTML.indexOf('glyphicon glyphicon-transfer') > 0, 'some characters are being incorrectly marked as in the answer, but not in the right position.');
-      assert(document.getResults.innerHTML.indexOf('glyphicon glyphicon-remove') != -1, 'characters not present in the answer are not being marked as wrong.');
-      assert(!document.getResults.innerHTML.indexOf('glyphicon glyphicon-remove') > 1, 'some characters are being incorrectly marked as not in the awnser.');
+      //add tests for starting and stopping divs?
+      //add tests for each result?
+      assert(document.getElementById('results').innerHTML.indexOf('glyphicon glyphicon-ok') != -1, 'correct characters are not being marked as correct.');
+      assert(!document.getElementById('results').innerHTML.indexOf('glyphicon glyphicon-ok') > 0, 'some characters are being incorrectly marked as correct.');
+      assert(document.getElementById('results').innerHTML.indexOf('glyphicon glyphicon-transfer') != 1, 'characters that were present in the answer, but not in the right position are not getting marked correctly.');
+      assert(!document.getElementById('results').innerHTML.indexOf('glyphicon glyphicon-transfer') > 0, 'some characters are being incorrectly marked as in the answer, but not in the right position.');
+      assert(document.getElementById('results').innerHTML.indexOf('glyphicon glyphicon-remove') != -1, 'characters not present in the answer are not being marked as wrong.');
+      assert(!document.getElementById('results').innerHTML.indexOf('glyphicon glyphicon-remove') > 1, 'some characters are being incorrectly marked as not in the awnser.');
+    });
+
+    it('should return `true` if element `answer`\'s `value` and parameter match, otherwise return `false`', function(){
+      assert(typeof window.getResults === "function",'a fuction named `getResults` was not found.');
+      document.getElementById('answer').value = 1234;
+      assert(window.getResults(1234), 'did not return `true` when parameter matched element `answer`\'s `value`.');
+      assert(!window.getResults(0000), 'did not return `false` whene parameter did not match element `answer`\'s `value`.');
     });
   });
 
