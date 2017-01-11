@@ -101,4 +101,20 @@ describe('CodeBreaker :', () => {
       assert(expectedAnswer == document.getElementById('answer').value,'the value of `answer` should not change when `answer` is already populated.');
     });
   });
+
+  describe('setMessage()', function(){
+    it('should accept one parameter and set the `innerHTML` of element `message` to that parameter.', function(){
+      assert(typeof window.setMessage === "function",'a fuction named `setMessage` was not found.')
+      window.setMessage('test `setMessage` function.');
+      assert(document.getElementById('message').value == 'test `setMessage` function.', '`message`s `innerHTML` did not match the provided value.');
+    });
+  });
+
+  describe('validateInput()', function(){
+    it('should accept one parameter and return `true` only when that parameter\'s length is 4.', function() {
+      assert(typeof window.validateInput === "function",'a fuction named `validateInput` was not found.');
+      assert(window.validateInput(1234) == true,'did not return `true` when valid input was provided.');
+      assert(window.validateInput(123) == false, 'returned `true` when length was not 4.');
+    });
+  });
 });
