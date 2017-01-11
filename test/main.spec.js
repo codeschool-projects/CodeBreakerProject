@@ -143,8 +143,8 @@ describe('CodeBreaker :', () => {
     it('should return `true` if element `answer`\'s `value` and parameter match, otherwise return `false`', function(){
       assert(typeof window.getResults === "function",'a fuction named `getResults` was not found.');
       document.getElementById('answer').value = 1234;
-      assert(window.getResults(1234), 'did not return `true` when parameter matched element `answer`\'s `value`.');
-      assert(!window.getResults(0000), 'did not return `false` whene parameter did not match element `answer`\'s `value`.');
+      assert(window.getResults('1234'), 'did not return `true` when parameter matched element `answer`\'s `value`.');
+      assert(!window.getResults('0000'), 'did not return `false` whene parameter did not match element `answer`\'s `value`.');
     });
   });
 
