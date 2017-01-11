@@ -58,7 +58,7 @@ describe('CodeBreaker :', () => {
 
   // Tests
   describe('setHiddenFields()', function() {
-    it(' should set element `answer` to a random whole number between 0 and 9999',function() {
+    it('should set element `answer` to a random whole number between 0 and 9999',function() {
       assert(typeof window.setHiddenFields === "function",'a fuction named `setHiddenFields` was not found.');
       assert(array.length > 0, '`answer` was not provided a value.');
       var current = null;
@@ -75,7 +75,7 @@ describe('CodeBreaker :', () => {
       assert(duplicates < 3,'`answer` does not appear to be random.');
     });
 
-    it(' should set element `answer` to a number exactly 4 characters long.', function() {
+    it('should set element `answer` to a number exactly 4 characters long.', function() {
       assert(typeof window.setHiddenFields === "function",'a fuction named `setHiddenFields` was not found.');
       assert(array.length > 0, '`answer` was not provided a value.');
       for(var i = 0; i < array.length; i++) {
@@ -87,6 +87,18 @@ describe('CodeBreaker :', () => {
         assert(typeof window.setHiddenFields === "function",'a fuction named `setHiddenFields` was not found.');
         window.setHiddenFields();
         assert(document.getElementById('attempt').value == 0, '`attempt` should have a value of 0.');
+    });
+  });
+
+  describe('setHiddenFields()', function(){
+    it('should only run if `attempt` or `answer` are empty', function() {
+      assert(typeof window.setHiddenFields === "function",'a fuction named `setHiddenFields` was not found.');
+      //make sure fields are populated before testing
+      window.setHiddenFields();
+      var expectedAnswer = document.getElementById('answer').value;
+      window.guess();
+      assert(expectedAnswer != '','`setHiddenFields` must update `answer` for test to run.')
+      assert(expectedAnswer == document.getElementById('answer').value,'the value of `answer` should not change when `answer` is already populated.');
     });
   });
 });
