@@ -47,8 +47,8 @@ describe('The webpage', () => {
   });
 
   describe('setHiddenFields', function() {
-    it('should set `answer` to a random whole number between 0 and 9999',function() {
-      var array = [];
+    var array = [];
+    it('should set `answer` to a random whole number between 0 and 9999 @random-number',function() {
       for(var i = 0; i < 10; i++)
       {
         window.setHiddenFields();
@@ -56,6 +56,9 @@ describe('The webpage', () => {
         assert(array[i] >= 0 && array[i] <= 9999, '`answer` was not between 0 and 9999.');
         assert(array[i].indexOf('.') == -1, '`answer` was not a whole number.')
       }
+    });
+
+    it('should create random numbers @random-number', function() {
       array.sort();
       var current = null;
       var duplicates = 0;
@@ -68,6 +71,7 @@ describe('The webpage', () => {
       }
       assert(duplicates < 3,'`answer` does not appear to be random.');
     });
+
     it('should set `answer` to a number exactly 4 characters long.', function() {
       for(var i = 0; i < 10; i++) {
         window.setHiddenFields();

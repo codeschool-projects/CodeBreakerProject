@@ -1,3 +1,9 @@
-function guess() {
+let answer = document.getElementById('answer');
+let answer = document.getElementById('attempt');
 
+function guess() {
+    let input = document.getElementById('user-guess');
+    //add functionality to guess function here
 }
+
+//impliment new functions here
