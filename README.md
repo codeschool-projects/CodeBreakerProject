@@ -1,7 +1,3 @@
-# Work in progress
-
-Please note, at this time this project is not yet complete. While you are welcome to watch this project grow, at this point it's not yet ready for use. Thank you for your interest in Code School Projects!
-
 # Use JavaScript to Create a "Code Breaker" Game
 
 You'll build a Code Breaker game using JavaScript. The game will randomly generate a hidden code and the player gets 10 attempts to guess that code based on provided feedback. (based off the Mastermind board game)
@@ -116,10 +112,6 @@ Create a function `showAnswer` that has one parameter. This function should set 
 ## Create a `showReplay` function
 
 Create a function `showReplay` with no parameters. This function will change the `style.display` of `guessing-div` div to `none` and the `style.display` of the `replay-div` div to `block` making it so the user can start over after they win or lose the game.
-
-## Hide Guessing div, Show Replay div
-
-When a user wins or loses we need to hide the div `guessing-div` and show the div `replay-div` so the player start over after winning or losing. This can be done by setting their `.style` to `display:none` to hide the div and `display:block` to show a div.
 
 ## Add `showAnswer` and `showReplay` to Win / Lose Conditions
 
