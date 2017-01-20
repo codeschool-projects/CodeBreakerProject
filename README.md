@@ -45,7 +45,7 @@ Complete the following tasks to finish this project.
 
 ## Create `setHiddenFields` function
 
-Our application uses the `answer` hidden input to store the answer to the game. Our `setHiddenFields` method should not use any parameters, but needs to set the `awnser` hidden input to a randomly generated number between 0 and 9999.
+Our application uses the `answer` hidden input to store the answer to the game. Our `setHiddenFields` method should not use any parameters, but needs to set the `anwser` hidden input to a randomly generated number between 0 and 9999.
 
 Hint: `Math.round()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)`, `Math.ceiling(input)`, or `Math.round(input)` to round.
 
