@@ -49,17 +49,17 @@ Create a function named `setHiddenFields` that sets the `answer` variable equal 
 
 Hint: `Math.random()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)` can be used to round down to the nearest whole number.
 
-## Make sure the hidden input "answer"'s value is exactly 4 characters long
+## Make sure the hidden input `answer`'s value is exactly 4 characters long
 
 In our `setHiddenFields` function we need to make sure the hidden input `answer` is exactly 4 characters long. 
 
 Hint: In order to add a zero to the front of answer it must be a string not a number, you can convert numbers to strings with `.toString()`. We can create a `while` loop that runs while `answer.length` is less than 4 that puts a `0` before answer's current value.
 
-## Set the hidden input "attempt"'s value to zero
+## Set the hidden input `attempt`'s value to zero
 
 In our `setHiddenFields` function we should also set the hidden input `attempt` to `0`.
 
-## Only set the "answer" and "attempt" hidden inputs when they aren't already set
+## Only set the `answer` and `attempt` hidden inputs when they aren't already set
 
 When we go to call the `setHiddenFields` functions in our `guess` function, we should only update our hidden inputs when they're not set.
 
