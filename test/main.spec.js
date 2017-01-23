@@ -194,7 +194,7 @@ describe('CodeBreaker :', () => {
   });
 
   describe('showAnswer()', function(){
-    it('should accept one parameter and set the `innerHTML` of element `code` to match element `answer`\'s value. If parameter is `true` element `code` should have ` success` added to it\'s `className` otherwise ` failure` should be added to it\`s `className`. (Note: the spaces before ` success` and ` failure` are required) @showAnswer.', function(){
+    it('should accept one parameter and set the `innerHTML` of element `code` to match element `answer`\'s value. If parameter is `true` element `code` should have ` success` added to it\'s `className` otherwise ` failure` should be added to it\`s `className`. (Note: the spaces before ` success` and ` failure` are required) @showAnswer', function(){
       assert(typeof window.showAnswer === "function",'a fuction named `showAnswer` was not found. @showAnswer');
       var code = document.getElementById('code');
       //test true
@@ -211,8 +211,8 @@ describe('CodeBreaker :', () => {
     });
   });
 
-  describe('showReplay() @showReplay', function(){
-    it('should set element `guessing-div`\'s `style` to "display:none" element `replay-div`\'s `style` to "display:block".', function(){
+  describe('showReplay()', function(){
+    it('should set element `guessing-div`\'s `style` to "display:none" element `replay-div`\'s `style` to "display:block". @showReplay', function(){
       assert(typeof window.showReplay === "function",'a fuction named `showReplay` was not found. @showReplay');
       window.showReplay();
       assert(document.getElementById('guessing-div').style.display == "none", '`guessing-div`\'s `style` was not set to "display:none". @showReplay');
