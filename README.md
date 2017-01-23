@@ -61,7 +61,7 @@ In our `setHiddenFields` function we should also set the hidden input `attempt` 
 
 ## Only set the `answer` and `attempt` hidden inputs when they aren't already set
 
-When we go to call the `setHiddenFields` functions in our `guess` function, we should only update our hidden inputs when they're not set.
+Call the `setHiddenFields` function in the body of the `guess` function, but also write some logic so that it's only called when answer and attempt haven't already been set.
 
 Hint: we can use an `if` condition to only run our code when `answer` or `attempt` is empty (`''`).
 
