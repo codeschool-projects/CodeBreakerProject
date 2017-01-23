@@ -45,11 +45,9 @@ Complete the following tasks to finish this project.
 
 ## Create `setHiddenFields` function
 
-Our application uses the `answer` hidden input to store the answer to the game. Our `setHiddenFields` method should not use any parameters, but needs to set the `anwser` hidden input to a randomly generated number between 0 and 9999.
+Create a function named `setHiddenFields` that sets the `answer` variable equal to a randomly generated whole number between 0 and 9999.
 
-Hint: `Math.round()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)`, `Math.ceiling(input)`, or `Math.round(input)` to round.
-
-Hint 2: The `document.getElementById(id)` function is a great way to get and set elements from the DOM. You can also set the element to a variable for later use.
+Hint: `Math.random()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)`, `Math.ceiling(input)`, or `Math.round(input)` to round.
 
 ## Make sure the hidden input "answer"'s value is exactly 4 characters long
 
