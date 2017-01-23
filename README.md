@@ -47,7 +47,7 @@ Complete the following tasks to finish this project.
 
 Create a function named `setHiddenFields` that sets the `answer` variable equal to a randomly generated whole number between 0 and 9999.
 
-Hint: `Math.random()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)`, `Math.ceiling(input)`, or `Math.round(input)` to round.
+Hint: `Math.random()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)` can be used to round down to the nearest whole number.
 
 ## Make sure the hidden input "answer"'s value is exactly 4 characters long
 
