@@ -65,9 +65,9 @@ Create a function `validateInput` with one parameter. If the parameter has a `le
 
 ## Call the `validateInput` function from the `guess` function
 
-Create an `if` condition block that uses `validateInput` with a parameter of `input.value` as the conditional. If `validateInput` returns `false` `return` should be used to stop execution of the `guess` function, otherwise we should increment the `attempt` hidden input by 1.
+Create an `if` condition block that uses `validateInput` with a parameter of `input.value` as the conditional. If `validateInput` returns `false`, then use `return false` to stop execution of the `guess` function, otherwise we should increment the `attempt` hidden input by 1.
 
-Hint: Don't forget you can use not `!` to check if something is `false` rather than `true`.
+Hint: You can negate a value on the `if` statement by using the exclamation point, like this: `if(!someValue)`.
 
 ## Create `getResults` function
 
