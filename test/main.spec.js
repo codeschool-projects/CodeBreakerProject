@@ -153,7 +153,7 @@ describe('CodeBreaker :', () => {
       assert(transfers > 0, 'characters that were present in the answer, but not in the right position are not getting marked correctly. @getResults');
       assert(transfers < 2, 'some characters are being incorrectly marked as in the answer, but not in the right position. @getResults');
       assert(removes > 1, 'characters not present in the answer are not being marked as wrong. @getResults');
-      assert(removes < 3, 'some characters are being incorrectly marked as not in the awnser. @getResults');
+      assert(removes < 3, 'some characters are being incorrectly marked as not in the anwser. @getResults');
     });
 
     it('should return `true` if element `answer`\'s `value` and parameter match, otherwise return `false` @correctGuess', function(){
@@ -183,7 +183,7 @@ describe('CodeBreaker :', () => {
       assert(document.getElementById('message').innerHTML == 'You Lose! :(', 'didn\'t set the message to "You Lose! :(" when user input did not match element `answer`\'s `value` and `attempt`\'s `value` was 10 or more. @loseCondition');
     });
 
-    it('should call `setMessage` with the value "Incorrect, try again." when element `awnser`\'s `value` does not match user input, but `attempt`\'s `value` is less than 10. @tryAgain', function(){
+    it('should call `setMessage` with the value "Incorrect, try again." when element `answer`\'s `value` does not match user input, but `attempt`\'s `value` is less than 10. @tryAgain', function(){
       assert(typeof window.getResults === "function",'a function named `getResults` was not found. @tryAgain');
       document.getElementById('answer').value = '1234';
       document.getElementById('attempt').value = '1';
@@ -200,13 +200,13 @@ describe('CodeBreaker :', () => {
       //test true
       window.setHiddenFields();
       window.showAnswer(true);
-      assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `awnser`\'s value when parameter was `true`. @showAnswer');
+      assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `answer`\'s value when parameter was `true`. @showAnswer');
       assert(code.className.indexOf(' success') != -1,'`code`\'s `className` did not have ` success` in it when parameter was `true`. @showAnswer');
       //test false
       code.value = '';
       code.className = '';
       window.showAnswer(false);
-      assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `awnser`\'s value when parameter was `false`. @showAnswer');
+      assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `answer`\'s value when parameter was `false`. @showAnswer');
       assert(code.className.indexOf(' failure') != -1,'`code`\'s `className` did not have ` failure` in it when parameter was `false`. @showAnswer');
     });
   });
