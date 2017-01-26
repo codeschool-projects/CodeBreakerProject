@@ -61,7 +61,7 @@ Hint: With a label, you'll want to set its `.innerHTML`, not its `.value`.
 
 ## Create `validateInput` function
 
-Create a function `validateInput` with one parameter. If the parameter has a `length` of 4, return `true` — otherwise, use the `setMessage` function to set the `message` label to `Guesses must be exactly 4 characters long.`, then return `false`.
+Create a function `validateInput` with one parameter. If the parameter has a `length` of 4, return `true` — otherwise, use the `setMessage` function to set the `message` label to `"Guesses must be exactly 4 characters long."`, then return `false`.
 
 ## Call the `validateInput` function from the `guess` function
 
@@ -81,15 +81,15 @@ In our `getResults` function, create a variable that counts how many characters 
 
 ## Set up win condition
 
-Add a call to the `getResults` function at the end of our `guess` function. If `getResults` returns true, use the `setMessage` function to set the `message` label to `You Win! :)`.
+Add a call to the `getResults` function at the end of our `guess` function. If `getResults` returns true, use the `setMessage` function to set the `message` label to `"You Win! :)"`.
 
 ## Set up lose condition
 
-If `getResults` returns `false` and the hidden input `attempt` value is greater than or equal to 10, use the `setMessage` function to set the `message` label to `You Lose! :(`.
+If `getResults` returns `false` and the hidden input `attempt` value is greater than or equal to 10, use the `setMessage` function to set the `message` label to `"You Lose! :("`.
 
 ## Continue play condition
 
-If neither a win or lose condition is met, use the `setMessage` function to set the `message` label to `Incorrect, try again.`.
+If neither a win or lose condition is met, use the `setMessage` function to set the `message` label to `"Incorrect, try again."`.
 
 ## Create a `showAnswer` function
 
