@@ -6,4 +6,4 @@ function guess() {
     //add functionality to guess function here
 }
 
-//impliment new functions here
+//implement new functions here
