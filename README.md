@@ -35,13 +35,13 @@ Complete the following tasks to finish this project.
 
 Create a function named `setHiddenFields` that sets the `answer` variable equal to a randomly generated whole number between 0 and 9999.
 
-Hint: `Math.random()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)` can be used to round down to the nearest whole number.
+**Hint:** `Math.random()` can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and `Math.floor(input)` can be used to round down to the nearest whole number.
 
 ## Make sure the hidden input `answer`'s value is exactly 4 characters long
 
-In our `setHiddenFields` function we need to make sure the hidden input `answer` is exactly 4 characters long. 
+In our `setHiddenFields` function we need to make sure the hidden input `answer` is exactly 4 characters long. (If our random number generates "42", we want to set the `value` of `answer` to "0042".)
 
-Hint: In order to add a zero to the front of an answer, it must be a string, not a number. You can convert numbers to strings with `.toString()`. We can create a `while` loop that runs while `answer.length` is less than 4 that puts a `0` before answer's current value.
+**Hint:** In order to add a zero to the front of an answer, it must be a string, not a number. You can convert numbers to strings with `.toString()`. We can create a `while` loop that runs while `answer.length` is less than 4 that puts a `0` before answer's current value.
 
 ## Set the hidden input `attempt`'s value to zero
 
@@ -51,13 +51,13 @@ In our `setHiddenFields` function, we should also set the hidden input `attempt`
 
 Call the `setHiddenFields` function in the body of the `guess` function, but also write some logic so that it's only called when answer and attempt haven't already been set.
 
-Hint: we can use an `if` condition to only run our code when `answer` or `attempt` is empty (`''`).
+**Hint:** we can use an `if` condition to only run our code when `answer` or `attempt` is empty (`''`).
 
 ## Create `setMessage` function
 
 Create a `setMessage` function with one parameter. This function should set the `message` label to whatever is provided to the parameter.
 
-Hint: With a label, you'll want to set its `.innerHTML`, not its `.value`.
+**Hint:** With a label, you'll want to set its `.innerHTML`, not its `.value`.
 
 ## Create `validateInput` function
 
@@ -67,13 +67,13 @@ Create a function `validateInput` with one parameter. If the parameter has a `le
 
 Create an `if` condition block that uses `validateInput` with a parameter of `input.value` as the conditional. If `validateInput` returns `false`, then use `return false` to stop execution of the `guess` function, otherwise we should increment the `attempt` hidden input by 1.
 
-Hint: You can negate a value on the `if` statement by using the exclamation point, like this: `if(!someValue)`.
+**Hint:** You can negate a value on the `if` statement by using the exclamation point, like this: `if(!someValue)`.
 
 ## Create `getResults` function
 
 Create a `getResults` function that has one parameter. In this function, we need to add the results of the user's guess to our `results` div's `innerHTML`. Each result should begin with `<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">` where `input` is the value the user guessed. Then for each character, you should add `<span class="glyphicon glyphicon-ok"></span>` if the character is in the correct position in the `answer`, a `<span class="glyphicon glyphicon-transfer"></span>` if the character is in the `answer` but isn't in the right position, and `<span class="glyphicon glyphicon-remove"></span>` if the number isn't in the `answer` at all. 
 
-HINT: You can create a variable to hold the initial div, then add each character's results to that variable in a `for` loop, then add the closing `div` tags after the loop. After which you can just set the `results` element's `innerHTML` to that variable.
+**Hint:*** You can create a variable to hold the initial div, then add each character's results to that variable in a `for` loop, then add the closing `div` tags after the loop. After which you can just set the `results` element's `innerHTML` to that variable.
 
 ## Check for correct guess
 
