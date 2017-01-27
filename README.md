@@ -39,7 +39,7 @@ Create a function named `setHiddenFields` that sets the `answer` variable equal 
 
 ## Make sure the hidden input `answer`'s value is exactly 4 characters long
 
-In our `setHiddenFields` function we need to make sure the hidden input `answer` is exactly 4 characters long. 
+In our `setHiddenFields` function we need to make sure the hidden input `answer` is exactly 4 characters long. (If our random number generates "42", we want to set the `value` of `answer` to "0042".)
 
 **Hint:** In order to add a zero to the front of an answer, it must be a string, not a number. You can convert numbers to strings with `.toString()`. We can create a `while` loop that runs while `answer.length` is less than 4 that puts a `0` before answer's current value.
 

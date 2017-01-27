@@ -46,7 +46,7 @@ describe('CodeBreaker :', () => {
 
   // Tests
   describe('setHiddenFields()', function() {
-    it('should set element `answer` to a random whole number between 0 and 9999 @randomNumber',function() {
+    it('should set the `value` of element `answer` to a random whole number between 0 and 9999. @randomNumber',function() {
       assert(typeof window.setHiddenFields === "function",'a function named `setHiddenFields` was not found.');
 
       var array = [];
@@ -59,22 +59,22 @@ describe('CodeBreaker :', () => {
         array.sort();
       }
 
-      assert(array.length > 0, '`answer` was not provided a value.');
+      assert(array.length > 0, '`setHiddenFields` didn\'t change the `value` of the `answer` hidden field. `setHiddenFields` should change the `answer.value` variable.');
       var current = null;
       var duplicates = 0;
       for(var i = 0; i < array.length; i++) {
-        assert(array[i] >= 0 && array[i] <= 9999, '`answer` was not between 0 and 9999.');
-        assert(array[i].indexOf('.') == -1, '`answer` was not a whole number.');
+        assert(array[i] >= 0 && array[i] <= 9999, '`answer.value` was ' + array[i] + ' which is not between 0 and 9999.');
+        assert(array[i].indexOf('.') == -1, '`answer.value` was ' + array[i] + ' which is not a whole number.');
         if(array[i] != current) {
           current = array[i];
         } else {
           duplicates++;
         }
       }
-      assert(duplicates < 3,'`answer` does not appear to be random.');
+      assert(duplicates < 3,'`setHiddenFields` was run 10 times and `answer.value` was the same more than 3 times. `answer.value` does not appear to be random.');
     });
 
-    it('should set element `answer` to a number exactly 4 characters long. @answerLength', function() {
+    it('should set the `value` of element `answer` to a number exactly 4 characters long. @answerLength', function() {
       assert(typeof window.setHiddenFields === "function",'a function named `setHiddenFields` was not found.');
 
       var array = [];
@@ -87,26 +87,26 @@ describe('CodeBreaker :', () => {
         array.sort();
       }
 
-      assert(array.length > 0, '`answer` was not provided a value.');
+      assert(array.length > 0, '`setHiddenFields` didn\'t change the `value` of the `answer` hidden field. `setHiddenFields` should change the `answer.value` variable.');
       for(var i = 0; i < array.length; i++) {
-        assert(array[i].length == 4, '`answer` should have a value exactly 4 characters long.');
+        assert(array[i].length == 4, 'The `value` of the element `answer` was ' + array[i] + ' which is not exactly 4 characters long.');
       }
     });
 
-    it('should set element `attempt` to 0 @setAttempt', function() {
+    it('should set the `value` of element `attempt` to 0. @setAttempt', function() {
         assert(typeof window.setHiddenFields === "function",'a function named `setHiddenFields` was not found.');
         window.setHiddenFields();
-        assert(document.getElementById('attempt').value == 0, '`attempt` should have a value of 0.');
+        assert(document.getElementById('attempt').value == 0, 'The `value` of element `attempt` was "' + document.getElementById('attempt').value + '" which is not 0.');
     });
 
-    it('should only run if `attempt` or `answer` are empty @preventClearing', function() {
+    it('should only run if the `value` of elements `attempt` or `answer` are empty. @preventClearing', function() {
       assert(typeof window.setHiddenFields === "function",'a function named `setHiddenFields` was not found.');
       //make sure fields are populated before testing
       window.setHiddenFields();
       var expectedAnswer = document.getElementById('answer').value;
       window.guess();
-      assert(expectedAnswer != '','`setHiddenFields` must update `answer` for test to run.')
-      assert(expectedAnswer == document.getElementById('answer').value,'the value of `answer` should not change when `answer` is already populated.');
+      assert(expectedAnswer != '','`setHiddenFields` didn\'t change the `value` of the `answer` hidden field. `setHiddenFields` should change the `answer.value` variable.');
+      assert(expectedAnswer == document.getElementById('answer').value,'the `value` of element `answer` was changed even though `answer` had already been provided a `value`. Only update the `value` of `answer` when answer is empty; `(\'\')`');
     });
   });
 
@@ -119,17 +119,27 @@ describe('CodeBreaker :', () => {
   });
 
   describe('validateInput()', function(){
-    it('should accept one parameter and return `true` only when that parameter\'s length is 4. @validateInput', function() {
+    it('should accept one parameter and return `true` only when that parameter\'s `length` is 4. @validateInput', function() {
       assert(typeof window.validateInput === "function",'a function named `validateInput` was not found.');
-      assert(window.validateInput('1234') == true,'did not return `true` when valid input was provided.');
-      assert(window.validateInput('123') == false, 'returned `true` when length was not 4.');
+      assert(window.validateInput('1234') == true,'`validateInput` did not return `true` when the `length` of `input` was 4. `validateInput` should return `true` when `input`\'s `length` is 4.');
+      assert(window.validateInput('123') == false, 'When the input\'s `length` was not 4 `validateInput` did not return `false`. `validateInput` should return `false` anytime `input` has a length that isn\'t 4.');
     });
 
     it('should run when `guess` runs @runValidation', function(){
       assert(typeof window.validateInput === "function",'a function named `validateInput` was not found.');
+      document.getElementById('user-guess').value = "12345";
+      document.getElementById('attempt').value = "0";
       var spy = sinon.spy(window, "validateInput");
       window.guess();
-      assert(window.validateInput.calledOnce,'was not run when `guess` ran.');
+      assert(window.validateInput.calledOnce,'`validateInput` was not run when `guess` ran.');
+      assert(document.getElementById('message').innerHTML == "Guesses must be exactly 4 characters long.",'When `validateInput` returns `false` the `innerHTML` of `message` should be set to "Guesses must be exactly 4 characters long."');
+      assert(document.getElementById('attempt').value == 0, 'The `value` of `attempt` increased when `validateInput` returned `false`, this should only iterate when `validateInput` returns `true`.');
+      document.getElementById('user-guess').value = "1234";
+      document.getElementById('attempt').value = "0";
+      document.getElementById('message').innerHTML = "";
+      window.guess();
+      assert(document.getElementById('message').innerHTML != "Guesses must be exactly 4 characters long.",'The `innerHTML` of `message` should only be set to "Guesses must be exactly 4 characters long." when `validateInput` returns `false`, however; this message was set when `validateInput` returned `true`.');
+      assert(document.getElementById('attempt').value == 1, 'The `value` of `attempt` should increase by 1 when `validateInput` returns `true`.');
     });
   });
 
