@@ -7,10 +7,10 @@ function guess() {
     let inputValue= document.getElementById('user-guess').value;
 
     //add functionality to guess function here
-    if (false){ //answerValue == ""
+    if (answerValue == ""){ 
       setHiddenFields();
     }
-    if(validateInput(inputValue) == true) { //validateInput(inputValue) == true
+    if(validateInput(inputValue) == true) {
       attempt++;
     } else {
       return;
@@ -31,7 +31,7 @@ while(answerValue.length<4){
 }
 
 function setMessage(message){
-document.getElementsByClassName('message').innerHTML= message;
+document.getElementById('message').innerHTML= message;
 }
 
 function validateInput(inputValue){
