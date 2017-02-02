@@ -7,14 +7,17 @@ function guess() {
     let inputValue= document.getElementById('user-guess').value;
 
     //add functionality to guess function here
-    if (answerValue == ""){ 
+    if (answerValue == ""){
       setHiddenFields();
     }
+
     if(validateInput(inputValue) == true) {
       attempt++;
     } else {
       return;
     }
+
+    getResults();
 }
 
 //implement new functions here
@@ -44,11 +47,13 @@ if(inputValue.length == 4){
 }
 
 function getResults( inputValue ){
-  if(inputValue == answer){
+  if(inputValue == answerValue){
       setMessage("You Win! :)");
-  } else if (inputValue !== answer && attempt> 10) {
+  } else if (inputValue !== answerValue && attempt> 10) {
     setMessage("You Lose! :(");
   } else {
     setMessage("Incorrect, try again.");
   }
+
+
 }
