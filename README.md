@@ -25,6 +25,7 @@ You'll build a Code Breaker game that you can play and show off to others as an 
 
 Once you have cloned the forked repository, go into the directory containing the project and look for the `/src` directory. This is the directory where you will be making changes when you start the following step-by-step instructions. You can simply open those files in any text editor to get started.
 
+
 In this project, all of your changes will happen in the `/src/assets/main.js` file.
 
 # Tasks
