@@ -8,9 +8,8 @@ function guess() {
        setHiddenFields();
    }
    
-   if (validateInput(input.value == false){
-       // Hint punto 11
-        return false;
+   if (!validateInput(input.value)){
+       return false;
    } else {
        attempt++;
    }
@@ -18,21 +17,23 @@ function guess() {
 
 //implement new functions here
 function setHiddenFields(){
-    answer = Math.floor(Math.random()*1000);
+    attempt = 0;
+    
+    answer = Math.floor(Math.random()*10000);
     while (answer.toString().length < 4){
         answer = "0" + answer;
     }
-    attempt = 0;
 }
 
 //Punto 9 mir no entender
 
-function setMessage(param){
-    message = param.innerHTML;
+function setMessage(text){
+    let element = document.getElementById("message");
+    element.innerHTML = text;
 }
 
 function validateInput (input){
-    if (input.length = 4){
+    if (input.length === 4){
         return true; 
     } else {
         setMessage("Guesses must be exactly 4 characters long.");
@@ -40,14 +41,10 @@ function validateInput (input){
     }
 }
 
-function getResults (input){
-   let div = <div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">;
-   
-   for (let i = 0; input.toString().length < 4; i++){
-        if (input.toString().i == answer.toString().i){
-            div = div + <span class="glyphicon glyphicon-ok"></span>;
-        } else {
-            div = div + 
-        }
-    }
+function getResults (guess){
+    let div = document.getElementById("results");
+        
 }
+
+
+
