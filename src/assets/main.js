@@ -37,7 +37,6 @@ function setHiddenFields(){
     }
 }
 
-//Punto 9 mir no entender
 
 function setMessage(text){
     let element = document.getElementById("message");
