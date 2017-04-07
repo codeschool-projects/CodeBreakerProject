@@ -4,7 +4,7 @@ let attempt = document.getElementById('attempt');
 function guess() {
     let input = document.getElementById('user-guess');
     //add functionality to guess function here
-   if (answer == '' || attempt == ''){
+   if (answer.value == '' || attempt.value == ''){
        setHiddenFields();
    }
    
@@ -14,7 +14,7 @@ function guess() {
        attempt++;
    }
 
-   if ( getResults ){
+   if ( getResults(input.value) ){
        setMessage("You Win! :)");
        showAnswer(true);
        showReplay();
@@ -31,9 +31,9 @@ function guess() {
 function setHiddenFields(){
     attempt = 0;
     
-    answer = Math.floor(Math.random()*10000);
-    while (answer.toString().length < 4){
-        answer = "0" + answer;
+    answer.value = Math.floor(Math.random()*10000);
+    while (answer.value.toString().length < 4){
+        answer.value = "0" + answer.value;
     }
 }
 
@@ -53,26 +53,26 @@ function validateInput (input){
     }
 }
 
-function getResults (input){
+function getResults (inputStr){
     let div = document.getElementById("results");
     let result = "";
     let position = "";
     let correctCharacters = 0;
 
-    for (let i=0 ; i <= input.length ; i++ ){
-        if ( input.charAt(i) == answer.charAt(i) ){
+    for (let i=0 ; i <= inputStr.length - 1 ; i++ ){
+        if ( inputStr.charAt(i) == answer.value.charAt(i) ){
             position = `<span class="glyphicon glyphicon-ok"></span>`;
             correctCharacters++;
-        } else if ( answer.includes( input.charAt(i) ) ){
+        } else if ( answer.value.includes( inputStr.charAt(i) ) ){
             position =  `<span class="glyphicon glyphicon-transfer"></span>`;
         } else{
             position = `<span class="glyphicon glyphicon-remove"></span>`;
         }
         result += position;
     }
-        div.innerHTML = `<div class="row"><span class="col-md-6">${input}</span><div class="col-md-6"> ${result} </div>`;    
     
-    return (correctCharacters === input.length);
+    div.innerHTML = div.innerHTML + `<div class="row"><span class="col-md-6">${inputStr}</span><div class="col-md-6"> ${result} </div>`;    
+    return (correctCharacters === inputStr.length);
 }
 
 function showAnswer (param){
@@ -80,15 +80,16 @@ function showAnswer (param){
     let classes = label.getAttribute("class");
 
     if (param){
-        label.innerHTML = document.getElementById("answer").val;
-        label.setAttribute(`${classes} success`);
+        label.setAttribute("class", `${classes} success`);
     } else {
-        label.setAttribute(`${classes} failure`);;
+        label.setAttribute("class", `${classes} failure`);;
     }
+
+    label.innerHTML = document.getElementById("answer").value;
 }
 
 function showReplay (){
     document.getElementById("guessing-div").style.display = "none";
-    document.getElementById("reply-div").style.display = "block";
+    document.getElementById("replay-div").style.display = "block";
 }
 
