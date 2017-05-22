@@ -12,11 +12,11 @@ function guess() {
     attempt.value++;
     if(getResults(input.value)){
         setMessage("You Win! :)");
-        showAnswer(answer.value, true);
+        showAnswer(true);
         showReplay();
     } else if (attempt.value >= 10){
         setMessage("You Lose! :(");
-        showAnswer(answer.value, false);
+        showAnswer(false);
         showReplay();
         } else {
             setMessage("Incorrect, try again.");
@@ -34,7 +34,7 @@ function setMessage(message) {
 }
 function validateInput(input) {
     if(input.length != 4) {
-        setMessage("Guess  must be exactly 4 charcters long");
+        setMessage("Guesses must be exactly 4 characters long");
         return false;
     }
     return true;
@@ -58,14 +58,14 @@ function getResults(input) {
     }
     return false;
 }
-function showAnswer(answer, success) {
+function showAnswer(success) {
     var code = document.getElementById("code");
     if (success) {
         code.className += " success";
     } else {
         code.className += " failure";
     }
-    code.innerHTML = answer;
+    code.innerHTML = answer.value;
 }
 function showReplay() {
     var guessingDiv = document.getElementById("guessing-div");
