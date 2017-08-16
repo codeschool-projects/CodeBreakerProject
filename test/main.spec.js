@@ -214,7 +214,7 @@ describe('CodeBreaker :', () => {
       assert(code.className.indexOf(' success') != -1,'`code`\'s `className` did not have ` success` in it when parameter was `true`.');
       //test false
       code.value = '';
-      code.className = '';
+      code.className = 'code';
       window.showAnswer(false);
       assert(document.getElementById('answer').value == code.innerHTML, '`code`\'s `innerHTML` did not match the `answer`\'s value when parameter was `false`.');
       assert(code.className.indexOf(' failure') != -1,'`code`\'s `className` did not have ` failure` in it when parameter was `false`.');
