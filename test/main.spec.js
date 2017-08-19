@@ -240,14 +240,16 @@ describe('CodeBreaker :', () => {
       document.getElementById('user-guess').value = '1234';
       window.guess();
       assert(document.getElementById('guessing-div').style.display == "none", '`showReplay` was not run when game win condition was met.');
-      assert(document.getElementById('message').innerHTML == 'You Win! :)','`showAnswer` was not run when game win condition was met.');
-      //lose outcame
+      assert(document.getElementById('message').innerHTML == 'You Win! :)','`setMessage` was not run when game win condition was met.');
+      assert(document.getElementById('code').className.includes(' success'),'`showAnswer` was not run when game win condition was met.');
+      //lose outcome
       document.getElementById('answer').value = '1234';
       document.getElementById('attempt').value = '10';
       document.getElementById('user-guess').value = '4321';
       window.guess();
       assert(document.getElementById('guessing-div').style.display == "none", '`showReplay` was not run when game lose condition was met.');
-      assert(document.getElementById('message').innerHTML == 'You Lose! :(','`showAnswer` was not run when game lose condition was met.');
+      assert(document.getElementById('message').innerHTML == 'You Lose! :(','`setMessage` was not run when game lose condition was met.');
+      assert(document.getElementById('code').className.includes(' failure'),'`showAnswer` was not run when game lose condition was met.');
     });
   });
 });
