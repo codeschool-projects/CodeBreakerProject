@@ -13,6 +13,18 @@ function guess() {
       return false;
     }
     attempt.value++;
+    if (getResults(input.value))
+    {
+      setMessage('You WIN!');
+      showAnswer(true);
+      showReplay();
+    } else if (getResults(input.value) === false && attempt.value >= 10){
+      setMessage('You lose...');
+      showAnswer(false);
+      showReplay();
+    } else {
+      setMessage('Incorrect, try again');
+    }
 }
 
 //implement new functions here
@@ -44,14 +56,14 @@ function validateInput(input)
 
 function getResults(input)
 {
-  let html = <div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">;
+  let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
   for (var i = 0; i < input.length; i++)
   {
     // utilize input as the paramter and the answer.value as it is out of scope
     // let's capture the correct answer characters first
     if(input.charAt(i) === answer.value.charAt(i))
     {
-      html += <span class="glyphicon glyphicon-ok"></span>;
+      html += '<span class="glyphicon glyphicon-ok"></span>';
     } else if (answer.value.indexOf(input.charAt(i)) > -1)
     {
       html += '<span class="glyphicon glyphicon-transfer"></span>';
@@ -69,4 +81,23 @@ function getResults(input)
   }
 
   return false;
+}
+
+function showAnswer(success)
+{
+  let code = document.getElementById('code');
+  if (success)
+  {
+    code.className += ' success';
+  } else {
+    code.className += ' failure';
+  }
+
+  code.innerHTML = answer.value;
+}
+
+function showReplay()
+{
+  document.getElementById('guessing-div').style.display = "none";
+  document.getElementById('replay-div').style.display = "block";
 }
