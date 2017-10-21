@@ -56,7 +56,7 @@ function getResults(input){
     }
   }
   for (let i = 0, input = results.value; i < 5; i++) {
-    let num = results.value.charAt(i);
+    let num = input.charAt(i);
     if(num == answer.value.charAt(i)){
       results += `\n\t<span class="glyphicon glyphicon-ok"></span>`;
     }
@@ -69,7 +69,7 @@ function getResults(input){
   }
 }
 function showAnswer(victory){
-  let code = document.getElementByClass("code");
+  let code = document.getElementsByClassName("code");
   code.innerHTML = answer;
   code.class += victory === false? ` failure` : ` success` ;
 }
