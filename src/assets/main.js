@@ -8,7 +8,7 @@ function guess() {
     attempt === ""? setHiddenFields() : fill++;
     if (validateInput(input.value) === true) {attempt++;}
     else {return false;}
-    if (getResults() === false){
+    if (getResults(input) === false){
       if(attempt.value < 10){
         setMessage("Incorrect, try again.");
       }
@@ -21,13 +21,14 @@ function guess() {
       setMessage("You win!:)");
       showAnswer(true);
     }
+    console.log(answer);
 }
 
 function setHiddenFields() {
-  answer = Math.floor(Math.random() * 1000);
-  answer.toString();
+  answer.value = Math.floor(Math.random() * 10000);
+  answer.value.toString();
   while(answer.length < 4){
-    answer = "0" + answer;
+    answer.value = "0" + answer;
   }
   attempt = 0;
 }
@@ -44,7 +45,7 @@ function validateInput(input){
   }
 }
 
-function getResults(){
+function getResults(input){
   let results = input;
   let isHere = function(input){
     for(let index = 0; index < answer.length; index++){
@@ -56,7 +57,7 @@ function getResults(){
   }
   for (let i = 0, input = results.value; i < 5; i++) {
     let num = results.value.charAt(i);
-    if(num == answer.charAt(i)){
+    if(num == answer.value.charAt(i)){
       results += `\n\t<span class="glyphicon glyphicon-ok"></span>`;
     }
     else if (isHere(num)){
@@ -76,3 +77,5 @@ function showReplay(){
   getElementById("guessing-div").style.display = none;
   getElementById("replay-div").style.display = block;
 }
+setHiddenFields();
+console.log(answer);
