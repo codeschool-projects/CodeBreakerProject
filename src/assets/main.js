@@ -6,7 +6,7 @@ let fill = 0;
 function guess() {
     let input = document.getElementById('user-guess');
     attempt === ""? setHiddenFields() : fill++;
-    if (validateInput(input.value) === true) {attempt++;}
+    if (validateInput(input.value) === true) {attempt.value++;}
     else {return false;}
     if (getResults(input) === false){
       if(attempt.value < 10){
@@ -48,8 +48,8 @@ function validateInput(input){
 function getResults(input){
   let results = input;
   let isHere = function(input){
-    for(let index = 0; index < answer.length; index++){
-      let answer2 = answer.charAt(index);
+    for(let index = 0; index < answer.value.length; index++){
+      let answer2 = answer.value.charAt(index);
       if( answer2 == input) {
         return true;
       }
