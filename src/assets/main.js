@@ -6,7 +6,7 @@ let fill = 0;
 function guess() {
     let input = document.getElementById('user-guess');
     attempt === ""? setHiddenFields() : fill++;
-    if (validateInput(input.value) === true) {attempt.value++;}
+    if (validateInput(input.value) === true) {attempt.value = attempt.value + 1;}
     else {return false;}
     if (getResults(input) === false){
       if(attempt.value < 10){
@@ -21,7 +21,7 @@ function guess() {
       setMessage("You win!:)");
       showAnswer(true);
     }
-    console.log(answer);
+    console.log(answer.value + 1);
 }
 
 function setHiddenFields() {
@@ -33,8 +33,8 @@ function setHiddenFields() {
   attempt = 0;
 }
 
-function setMessage(message){
-  message.innerHTML = message;
+function setMessage(input){
+  message.innerHTML = input;
 }
 
 function validateInput(input){
@@ -55,8 +55,8 @@ function getResults(input){
       }
     }
   }
-  for (let i = 0, input = results.value; i < 5; i++) {
-    let num = input.charAt(i);
+  for (let i = 0, inputValue = results.value; i < 5; i++) {
+    let num = inputValue.charAt(i);
     if(num == answer.value.charAt(i)){
       results += `\n\t<span class="glyphicon glyphicon-ok"></span>`;
     }
@@ -77,5 +77,3 @@ function showReplay(){
   getElementById("guessing-div").style.display = none;
   getElementById("replay-div").style.display = block;
 }
-setHiddenFields();
-console.log(answer);
