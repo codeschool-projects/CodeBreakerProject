@@ -6,8 +6,8 @@ let fill = 0;
 function guess() {
     let input = document.getElementById('user-guess');
     attempt === ""? setHiddenFields() : fill++;
-    if (validateInput(input.value) === true) {attempt.value = attempt.value + 1;}
-    else {return false;}
+    if (validateInput(input.value) === false) {return false;}
+    else {attempt.value++}
     if (getResults(input) === false){
       if(attempt.value < 10){
         setMessage("Incorrect, try again.");
