@@ -20,8 +20,9 @@ function guess() {
     else{
       setMessage("You win!:)");
       showAnswer(true);
+      ShowReplay();
     }
-    console.log(answer.value + 1);
+    console.log(attempt.value);
 }
 
 function setHiddenFields() {
@@ -74,6 +75,6 @@ function showAnswer(victory){
   code.class += victory === false? ` failure` : ` success` ;
 }
 function showReplay(){
-  getElementById("guessing-div").style.display = none;
-  getElementById("replay-div").style.display = block;
+  document.getElementById("guessing-div").style.display = none;
+  document.getElementById("replay-div").style.display = block;
 }
