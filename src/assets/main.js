@@ -2,29 +2,6 @@ let answer = document.getElementById('answer');
 let attempt = document.getElementById('attempt');
 let message = document.getElementById("message");
 let fill = 0;
-
-function guess() {
-    let input = document.getElementById('user-guess');
-    attempt === ""? setHiddenFields() : fill++;
-    if (validateInput(input.value) === false) {return false;}
-    else {attempt.value++}
-    if (getResults(input) === false){
-      if(attempt.value < 10){
-        setMessage("Incorrect, try again.");
-      }
-      else {
-        setMessage("You lose! :(");
-        showAnswer(false);
-      }
-    }
-    else{
-      setMessage("You win!:)");
-      showAnswer(true);
-      ShowReplay();
-    }
-    console.log(attempt.value);
-}
-
 function setHiddenFields() {
   answer.value = Math.floor(Math.random() * 10000);
   answer.value = answer.value.toString();
@@ -75,6 +52,28 @@ function showAnswer(victory){
   code.class += victory === false? ` failure` : ` success` ;
 }
 function showReplay(){
-  document.getElementById("guessing-div").style.display = none;
-  document.getElementById("replay-div").style.display = block;
+  document.getElementById("guessing-div").style.display = "none";
+  document.getElementById("replay-div").style.display = "block";
+}
+
+function guess() {
+    let input = document.getElementById('user-guess');
+    attempt === ""? setHiddenFields() : fill++;
+    if (validateInput(input.value) === false) {return false;}
+    else {attempt.value++}
+    if (getResults(input) === false){
+      if(attempt.value < 10){
+        setMessage("Incorrect, try again.");
+      }
+      else {
+        setMessage("You lose! :(");
+        showAnswer(false);
+      }
+    }
+    else{
+      setMessage("You win!:)");
+      showAnswer(true);
+      showReplay();
+    }
+    console.log(attempt.value);
 }
