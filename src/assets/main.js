@@ -3,7 +3,7 @@ let attempt = document.getElementById('attempt');
 
 function guess() {
     let input = document.getElementById('user-guess');
-    if (answer == '' || attempt = ''){
+    if (answer.value == '' || attempt.value = ''){
       return setHiddenFields();
     }
     //add functionality to guess function here
